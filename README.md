@@ -79,18 +79,21 @@ $ ansible-playbook postgres.yml
 ```
 
 
-### configure postgres to accept connections from host machine
+### Configure postgres to accept connections from host machine
 The following will open up the postgres server to any connection, however we have it installed on
 a VM that only accepts connections from the host machine.  This is not how we would configure 
 these files for a production db server.
 
 add the following line to the pg_hba.conf file in etc/postgresql/9.3/main
+
 host     all             all             0.0.0.0/0               trust
 
 uncomment the following line in postgresql.conf
-#listen_addresses = 'localhost'		# what IP address(es) to listen on;
+
+\#listen_addresses = 'localhost'		# what IP address(es) to listen on;
 
 and change it to 
+
 listen_addresses = '*'		        # what IP address(es) to listen on;
 
 
