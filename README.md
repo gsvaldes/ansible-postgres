@@ -90,15 +90,21 @@ these files for a production db server.
 
 add the following line to the pg_hba.conf file in etc/postgresql/9.3/main
 
+```
 host     all             all             0.0.0.0/0               trust
+```
 
 uncomment the following line in postgresql.conf
 
-\#listen_addresses = 'localhost'		# what IP address(es) to listen on;
+```
+#listen_addresses = 'localhost'		# what IP address(es) to listen on;
+```
 
 and change it to 
 
+```
 listen_addresses = '*'		        # what IP address(es) to listen on;
+```
 
 After making the changest to these files, you will need to restart postgres for them to take effect
 You can either do this manually in the VM, or re-run the postgres.yml playbook.
