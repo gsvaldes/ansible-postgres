@@ -1,8 +1,12 @@
 # ansible-postgres
 Install and configure PostgreSQL on an Ubuntu VM
 
+*In part based on Ansible Up and Running, updated for Ansible 2.0*
+*http://www.ansiblebook.com/*
+
 
 ### Checkout project and create the VM
+
 
 ```bash
 $ mkdir ansible-postgres
