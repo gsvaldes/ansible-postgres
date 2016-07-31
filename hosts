@@ -1,0 +1,2 @@
+[dbservers]
+postgres_server ansible_host=192.168.87.41 ansible_port=22
