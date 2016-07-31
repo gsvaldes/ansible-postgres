@@ -72,3 +72,8 @@ $ cp _secrets_template.yml secrets.yml
 ```
 add a database password to the secrets.yml file
 
+
+### run the ansible playbook
+```bash
+$ ansible-playbook postgres.yml
+```
