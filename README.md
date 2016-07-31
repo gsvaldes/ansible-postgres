@@ -96,6 +96,9 @@ and change it to
 
 listen_addresses = '*'		        # what IP address(es) to listen on;
 
+After making the changest to these files, you will need to restart postgres for them to take effect
+You can either do this manually in the VM, or re-run the postgres.yml playbook.
+
 
 ### TODO
 1. As of July 2016, the PostgreSQL version installed from the apt-repository is 9.3, update the playbook to install 9.5
