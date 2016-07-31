@@ -2,9 +2,12 @@
 Install and configure PostgreSQL on an Ubuntu VM
 
 
-### Create the VM
+### Checkout project and create the VM
 
 ```bash
+$ mkdir ansible-postgres
+$ cd ansible-postgres
+$ git clone https://github.com/gsvaldes/ansible-postgres.git .
 $ vagrant up
 ```
 ### Set up SSH Keys
@@ -55,4 +58,17 @@ Note that you will still be asked for your passphrase if you entered one during 
 $ ssh vagrant@192.168.87.41
 ```
 
+### Create virtual env and install requirements
+```bash
+$ cd ansible-postgres
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+```
+
+# Create the secrets.yml file
+```bash
+$ cp _secrets_template.yml secrets.yml
+```
+add a database password to the secrets.yml file
 
