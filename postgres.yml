@@ -28,6 +28,7 @@
         - postgresql
         - postgresql-contrib
         - python-dev
+        - postgresql-9.3-postgis-2.1
 
     - name: create a user
       postgresql_user:
