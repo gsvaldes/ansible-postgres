@@ -49,6 +49,13 @@
       become: true
       become_user: postgres  
 
+    - name: add postgis extension
+      postgresql_ext:
+        name: postgis
+        db:  "{{ database_name }}"
+      become: true
+      become_user: postgres 
+
     # is this last one necessary? probably if changes are made to pg_hba.conf
     - name: restart postgresql   
       service: name=postgresql state=restarted
