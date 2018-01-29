@@ -113,6 +113,5 @@ You can either do this manually in the VM, or re-run the postgres.yml playbook.
 ### TODO
 1. As of July 2016, the PostgreSQL version installed from the apt-repository is 9.3, update the playbook to install 9.5
 2. Automatically update pg_hba.conf and postgresql.conf via the playbook
-3. Install and configure postgis
 
 

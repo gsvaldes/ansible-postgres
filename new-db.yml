@@ -1,0 +1,43 @@
+---
+
+- name: Install and configure postgres
+  hosts: dbservers
+  vars:
+    user: "{{ ansible_user }}"
+    database_name: "{{ proj_name }}"
+    database_user: "{{ proj_name }}"
+    locale: en_US.UTF-8 
+
+
+  tasks:
+
+    - name: create a user
+      postgresql_user:
+        name: "{{ database_user }}"
+        password: "{{ db_pass }}"
+      become: true
+      become_user: postgres
+
+
+    - name: create the database
+      postgresql_db:
+        name: "{{ database_name }}"
+        owner: "{{ database_user }}"
+        encoding: UTF8
+        lc_ctype: "{{ locale }}"
+        lc_collate: "{{ locale }}"
+        template: template0
+      become: true
+      become_user: postgres  
+
+    - name: add postgis extension
+      postgresql_ext:
+        name: postgis
+        db:  "{{ database_name }}"
+      become: true
+      become_user: postgres 
+
+    # is this last one necessary? probably if changes are made to pg_hba.conf
+    - name: restart postgresql   
+      service: name=postgresql state=restarted
+      become: true    
